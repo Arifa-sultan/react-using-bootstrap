@@ -5,7 +5,7 @@
 //             <div style={{backgroundColor:"blue", margin:20}} className="App">
 //                 Student{this.props.name}
 
-import { useState } from "react"
+// import { useState } from "react"
 
                 
 //             </div>
@@ -45,3 +45,30 @@ import { useState } from "react"
 // export default Student;
 // componentdid mount in lifr cycle 
 // use of calling api 
+// function Student(props)
+// {
+//     return(
+//         <div>
+//             <span>{props.data.names}</span>
+//             <span>{props.data.emal}</span>
+//             <span>{props.data.address}</span>
+//         </div>
+//     )
+// }
+// export default Student;
+import React from "react";
+
+function Student({ onSendData }) {
+  const sendDataToParent = () => {
+    const data = "Hello from Child!"; // Ye data Parent ko bhejna hai
+    onSendData(data); // Parent ka function call aur data bhejna
+  };
+
+  return (
+    <div>
+      <button onClick={sendDataToParent}>Send Data to Parent</button>
+    </div>
+  );
+}
+
+export default Student;

@@ -117,3 +117,57 @@
 // }
 
 // export default NestedList;
+// reuse component in react 
+// import React from "react";
+// import Student from "./Student";
+// function App(){
+//     const user=[
+//         {
+//             names:'arifa',emal:'arifa@test.com',contact:'11'
+//         },
+//         {
+            
+//             names:'anil',emal:'anil@test.com',contact:'11'
+//         },
+//         {
+            
+//             names:'anil',emal:'anil@test.com',contact:'11'
+//         },
+//     ]
+//     return(
+//         <div className="App">
+// <h1>reuse component</h1>
+// {
+    
+//     user.map((items,i)=>
+//     <Student data= {items}/>
+//     )
+// }
+//         </div>
+//     )
+// }
+// export default App;
+// fragment 
+<>
+{/* <h1>hello</h1> */}
+</>
+import React, { useState } from "react";
+import Student from "./Student";
+
+function ParentComponent() {
+  const [childData, setChildData] = useState(""); // Child data yahan save hoga
+
+  // Callback function to receive data
+  const handleChildData = (data) => {
+    setChildData(data); // Child se data yahan set ho jayega
+  };
+
+  return (
+    <div>
+      <h1>Data from Child: {childData}</h1>
+      <Student onSendData={handleChildData} />
+    </div>
+  );
+}
+
+export default ParentComponent;
